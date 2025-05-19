@@ -32,6 +32,7 @@ const useCommentsByTitle = (title) => {
 
             const newComment = await addComment(commentData);
             setComments(prev => [newComment, ...prev]);
+            window.location.reload()
             return true;
         } catch (err) {
             setError(err.message);
