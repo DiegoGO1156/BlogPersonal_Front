@@ -1,4 +1,14 @@
+import { useNavigate } from "react-router";
+
 const CourseItem = ({ course }) => {
+
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    // Navegar a la página de publicaciones del curso
+    navigate(`/courses/${encodeURIComponent(course.courseName)}/publications`);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200">
       {/* Encabezado con estado */}
@@ -24,8 +34,8 @@ const CourseItem = ({ course }) => {
         )}
         
         {/* Botón de acción */}
-        <button className="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-300">
-          Ver detalles
+        <button onClick={handleViewDetails} className="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-300">
+         Ver detalles
         </button>
       </div>
     </div>

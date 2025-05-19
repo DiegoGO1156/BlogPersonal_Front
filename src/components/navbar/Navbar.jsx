@@ -47,22 +47,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Barra de búsqueda con animación */}
-          <div className="flex items-center">
-            <div className="hidden lg:flex relative group">
-              <input
-                type="text"
-                placeholder="Buscar cursos..."
-                className="w-56 pl-4 pr-10 py-1.5 rounded-full border border-gray-300 focus:outline-none 
-                focus:ring-1 focus:ring-indigo-500 focus:border-transparent text-sm transition-all 
-                duration-300 group-hover:w-64 group-hover:shadow-sm"
-              />
-              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 
-                hover:text-indigo-600 transition-colors duration-300 group-hover:scale-110">
-                <FaSearch className="text-sm" />
-              </button>
-            </div>
-
             {/* Botón menú móvil con animación */}
             <button className="md:hidden text-gray-700 focus:outline-none ml-4 hover:text-indigo-600 
               transition-colors duration-300 transform hover:scale-110">
@@ -109,7 +93,6 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </div>
     </nav>
     </>
   )
