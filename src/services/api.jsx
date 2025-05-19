@@ -32,10 +32,41 @@ export const createPublication = async (publicationData) => {
   } catch (errors) {
     console.error(errors)
     if (errors.response?.data?.errors) {
-      // Maneja errores de validación del backend
       const errorMessages = errors.response.data.errors.map(err => err.msg).join(', ');
       return { success: false, error: errorMessages };
     }
     return { success: false, error: errors.message };
   }
+};
+
+export const getPublicationById = async (publicationId) => {
+  try {
+    const response = await apiClient.get(`/publications/${publicationId}`);
+    return response.data.findPublication; 
+  } catch (error) {
+    console.error('Error fetching publication:', error);
+    throw error;
+  }
+};
+
+export const getCommentsByTitle = async (title) => {
+    try {
+        const response = await apiClient.get('/Comments', {
+            params: { title } 
+        });
+        return response.data.comments;
+    } catch (err) {
+        console.error('Error fetching comments by title:', err);
+        throw err;
+    }
+};
+
+export const addComment = async (commentData) => {
+    try {
+        const response = await apiClient.post('/comments/newComment', commentData);
+        return response.data;
+    } catch (err) {
+        console.error('Error creating comment:', err);
+        throw err;
+    }
 };

@@ -1,23 +1,26 @@
+import { Link } from 'react-router-dom';
+
 const PublicationItem = ({ publication }) => {
+  // Asegúrate que publication.course sea el nombre (string) o el _id
+  const courseIdentifier = publication.course?.courseName || publication.course;
+  
   return (
-    <div className="mb-6 border-b border-gray-200 pb-4 last:border-b-0">
-      {/* Título en azul */}
-      <h3 className="text-lg font-semibold text-blue-600 mb-1">
-        {publication.title}
-      </h3>
-      
-      {/* Autor y fecha en una sola línea */}
-      <div className="flex items-center text-sm text-gray-500">
-        <span className="mr-1">-</span>
-        <span>{publication.author}</span>
-        <span className="mx-1">•</span>
-        <span>
-          {new Date(publication.createdAt).toLocaleDateString('es-ES', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-          })}
-        </span>
+    <div className="bg-white p-4 rounded-lg border border-gray-200 mb-4 hover:shadow-md transition-shadow">
+      <div className="flex justify-between items-start">
+        <div>
+          <h3 className="text-lg font-semibold text-blue-600 mb-1">
+            {publication.title}
+          </h3>
+          <p className="text-sm text-gray-500">
+            Por: {publication.author} • {new Date(publication.createdAt).toLocaleDateString('es-ES')}
+          </p>
+        </div>
+        <Link 
+          to={`/courses/${encodeURIComponent(courseIdentifier)}/publications/${publication._id}`}
+          className="text-sm bg-blue-50 text-blue-600 px-3 py-1 rounded hover:bg-blue-100"
+        >
+          Ver completo
+        </Link>
       </div>
     </div>
   );

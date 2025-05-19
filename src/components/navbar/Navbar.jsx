@@ -29,17 +29,9 @@ const Navbar = () => {
                   transition-all duration-300 group-hover:w-full"></span>
               </a>
               
-              <a href="#" className="relative py-1 group">
+              <a href="/" className="relative py-1 group">
                 <span className="text-gray-700 group-hover:text-indigo-600 transition-colors duration-300">
                   Todos los Cursos
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 
-                  transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              
-              <a href="#" className="relative py-1 group">
-                <span className="text-gray-700 group-hover:text-indigo-600 transition-colors duration-300">
-                  Sobre el Blog
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 
                   transition-all duration-300 group-hover:w-full"></span>
