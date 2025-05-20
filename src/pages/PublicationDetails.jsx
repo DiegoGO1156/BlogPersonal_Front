@@ -10,6 +10,8 @@ const PublicationDetailPage = () => {
   const { courseName, publicationId } = useParams();
   const { publication, loading, error } = usePublicationDetail(publicationId);
 
+  console.log(publication)
+  
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="animate-pulse text-center py-8">
@@ -18,12 +20,12 @@ const PublicationDetailPage = () => {
       </div>
     </div>
   );
-
+  
   if (error) return (
     <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="min-h-screen flex items-center justify-center"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="min-h-screen flex items-center justify-center"
     >
       <div className="bg-red-50 border-l-4 border-red-500 p-4 max-w-md">
         <div className="flex">
@@ -39,7 +41,8 @@ const PublicationDetailPage = () => {
       </div>
     </motion.div>
   );
-
+  
+  console.log(publication?.media); 
   return (
     <>
       <Navbar />
