@@ -7,7 +7,7 @@ const CommentSection = ({ publicationTitle }) => {
     const [authorName, setAuthorName] = useState('');
     const [isAnonymous, setIsAnonymous] = useState(false);
 
-    const { comments, loading, error, editingId, editText, setEditText, updateComment, startEditing, cancelEditing, removeComment, deletingId} = useCommentsByTitle(publicationTitle);
+    const { comments, loading, error, editingId, editText, setEditText, postComment, updateComment, startEditing, cancelEditing, removeComment, deletingId} = useCommentsByTitle(publicationTitle);
 
     const handleDelete = async (commentId) => {
         if (window.confirm('¿Estás seguro de eliminar este comentario?')) {
