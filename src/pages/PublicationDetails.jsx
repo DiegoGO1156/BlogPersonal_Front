@@ -9,8 +9,6 @@ import { fadeIn, staggerContainer } from '../style/motion';
 const PublicationDetailPage = () => {
   const { courseName, publicationId } = useParams();
   const { publication, loading, error } = usePublicationDetail(publicationId);
-
-  console.log(publication)
   
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center">
@@ -42,7 +40,6 @@ const PublicationDetailPage = () => {
     </motion.div>
   );
   
-  console.log(publication?.media); 
   return (
     <>
       <Navbar />
@@ -103,7 +100,7 @@ const PublicationDetailPage = () => {
                 className="mt-8 rounded-xl overflow-hidden shadow-md"
               >
                 <img 
-                  src={`http://localhost:3000/uploads/media_Publications/${publication.media}`} 
+                  src={`/uploads/media_Publications/${publication.media}`} 
                   alt={publication.title}
                   className="w-full h-auto object-cover transition-all duration-500 hover:scale-105"
                 />
