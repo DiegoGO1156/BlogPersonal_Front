@@ -70,3 +70,46 @@ export const addComment = async (commentData) => {
         throw err;
     }
 };
+
+/*
+export const editComment = async (commentId, updatedCommentText) => {
+  try {
+    const response = await apiClient.patch( `/comments/editComment/${commentId}`,
+    { comment: updatedCommentText }
+  );
+  return response.data;
+} catch (err) {
+  console.error('Error editing comment:', err.response?.data || err.message);
+  throw err;
+}
+};
+*/
+export const editComment = async (commentId, text) => {
+  try {
+    console.log('Enviando al backend:', {commentId, text, type: typeof text});
+      const response = await apiClient.put( `/comments/editComment/${commentId}`,
+          { comment: text }, 
+          {
+            headers: { 'Content-Type': 'application/json' }
+          }
+      );
+      return response.data;
+  } catch (err) {
+      console.error('Error en el servicio:', {
+          request: err.config?.data,
+          response: err.response?.data
+      });
+      throw err;
+    }
+};
+
+
+export const deleteComment = async (commentId) => {
+  try {
+    const response = await apiClient.delete(`/comments/deleteComment/${commentId}`);
+    return response.data;
+  } catch (err) {
+    console.error('Error deleting comment:', err);
+    throw err;
+  }
+};
