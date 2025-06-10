@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000/Blog_Personal",
+  baseURL: "blogpersonalback-production.up.railway.app",
   timeout: 5000,
   headers: {'Cache-Control': 'no-cache'},
   httpAgent: false
